@@ -11,7 +11,7 @@ Also provides utility functions to validate if a string contains ASCII or Unicod
 ```elixir
 def deps do
   [
-    {:mangler, "~> 0.1.0"}
+    {:mangler, "~> 0.2.0"}
   ]
 end
 ```
