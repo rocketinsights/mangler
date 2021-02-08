@@ -1,15 +1,24 @@
 defmodule Mangler.MixProject do
   use Mix.Project
 
+ @project_url "https://github.com/rocketinsights/mangler/"
+  @version "0.1.0"
+
   def project do
     [
       app: :mangler,
-      version: "0.1.0",
+      version: @version,
       elixir: "~> 1.10",
+      description: "A collection of utilities to validate and transform strings.",
+      source_url: @project_url,
+      homepage_url: @project_url,
       elixirc_paths: elixirc_paths(Mix.env()),
+      build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
+      package: package(),
       test_coverage: [tool: ExCoveralls],
       preferred_cli_env: [coveralls: :test, "coveralls.detail": :test, "coveralls.post": :test, "coveralls.html": :test],
+      docs: [main: "readme", extras: ["README.md"]],
       deps: deps(),
       aliases: aliases()
     ]
@@ -31,7 +40,23 @@ defmodule Mangler.MixProject do
     [
       {:credo, "~> 1.4", only: [:dev, :test], runtime: false},
       {:excoveralls, "~> 0.10", only: :test},
+      {:ex_doc, "~> 0.23", only: :dev, runtime: false},
       {:stream_data, "~> 0.5", only: :test}
+    ]
+  end
+
+  defp package() do
+    [
+      maintainers: [
+        "Chris Berube",
+        "Jon Principe"
+      ],
+      licenses: ["MIT"],
+      organization: "Rocket Insights",
+      links: %{
+        "GitHub" => @project_url,
+        "Rocket Insights" => "https://rocketinsights.com"
+      }
     ]
   end
 

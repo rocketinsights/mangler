@@ -29,20 +29,20 @@ defmodule Mangler.ValidateTest do
     end
   end
 
-  describe "unicode_letters_only?" do
+  describe "unicode_letters?" do
     test "returns true when string contains only valid unicode letters or those in the allowlist" do
-      input_list = String.split(File.read!("test/data/validate/unicode_letters_only?/inputs.txt"), "\n")
+      input_list = String.split(File.read!("test/data/validate/unicode_letters?/inputs.txt"), "\n")
 
       output_list =
-        String.split(File.read!("test/data/validate/unicode_letters_only?/outputs.txt"), "\n", trim: true)
+        String.split(File.read!("test/data/validate/unicode_letters?/outputs.txt"), "\n", trim: true)
         |> Enum.map(&String.to_existing_atom(&1))
 
       io_list = List.zip([input_list, output_list])
 
       for {input, output} <- io_list do
-        result = Validate.unicode_letters_only?(input, allow: ["-"])
+        result = Validate.unicode_letters?(input, allow: ["-"])
 
-        assert result == output, inspect_failure("Validate.unicode_letters_only?", input, output, result)
+        assert result == output, inspect_failure("Validate.unicode_letters?", input, output, result)
       end
     end
   end

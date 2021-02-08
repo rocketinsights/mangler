@@ -16,6 +16,50 @@ def deps do
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/mangler](https://hexdocs.pm/mangler).
+## Usage
+
+### Transform
+
+```elixir
+iex> Mangler.Transform.substitute_diacritics("Röçkêt Îñśíghtš")
+"RocketInsights"
+```
+
+to preserve spaces or any other specific character use the `allow` opt
+```elixir
+iex> Mangler.Transform.substitute_diacritics("Röçkêt Îñśíghtš", allow: [" "])
+"Rocket Insights"
+```
+
+### Validate unicode letters
+```elixir
+iex> Mangler.Validate.unicode_letters?("a")
+true
+
+iex> Mangler.Validate.unicode_letters?("🚀")
+false
+
+iex> Mangler.Validate.unicode_letters?("ö")
+true
+```
+
+### Validate ascii letters
+
+```elixir
+iex> Mangler.Validate.ascii_printable?("a")
+true
+
+iex> Mangler.Validate.ascii_printable?("🚀")
+false
+
+iex> Mangler.Validate.ascii_printable?("ö")
+false
+```
+
+## Authors
+
+![Rocket Insights](https://www.rocketinsights.com/images/rocket_partofdept_logo.svg)
+
+* [Chris Berube](https://github.com/crberube)
+* [Jon Principe](https://github.com/jprincipe)
+

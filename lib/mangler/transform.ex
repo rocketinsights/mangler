@@ -1,4 +1,8 @@
 defmodule Mangler.Transform do
+  @moduledoc ~S"""
+  Helper to substitute [diacritics](https://en.wikipedia.org/wiki/Diacritic) with their ASCII equivalents
+  """
+
   @type opts :: [allow: list(String.t())]
 
   @doc """

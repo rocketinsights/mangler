@@ -1,4 +1,8 @@
 defmodule Mangler.Validate do
+  @moduledoc """
+  functions to validate the character sets of input string
+  """
+
   @ascii_printable_codepoint_range 32..127
 
   @type opts :: [allow: list(String.t())]
@@ -7,8 +11,8 @@ defmodule Mangler.Validate do
   Determines whether the given string is a valid unicode letter.
   It also returns true for any characters provided to the allowlist.
   """
-  @spec unicode_letters_only?(String.t(), opts()) :: boolean
-  def unicode_letters_only?(string, opts \\ []) do
+  @spec unicode_letters?(String.t(), opts()) :: boolean
+  def unicode_letters?(string, opts \\ []) do
     allowlist = Keyword.get(opts, :allow, [])
 
     for(grapheme <- String.graphemes(string), into: MapSet.new(), do: Enum.member?(allowlist, grapheme) || unicode_letter?(grapheme))
