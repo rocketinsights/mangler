@@ -1,0 +1,6 @@
+test
+tēst
+tešt
+tèst
+test-test
+tēst-tešt
