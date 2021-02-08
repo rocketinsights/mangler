@@ -1,0 +1,11 @@
+test
+tēst
+tešt
+tèst
+#te$t
+%test%
+te$t
+tê$t
+test🙂
+test-test
+βϐ
