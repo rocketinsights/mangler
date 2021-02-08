@@ -1,6 +1,6 @@
 defmodule Mangler do
   @moduledoc ~S"""
-  A collection of utilities to validate and transform strings.
+  A collection of utilities to validate and transform strings with diacritics, unicode and ascii.
 
     * `Mangler.Transform` - Helper to substitute diacritics with their ASCII equivalents
 

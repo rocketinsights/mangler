@@ -1,15 +1,15 @@
 defmodule Mangler.MixProject do
   use Mix.Project
 
- @project_url "https://github.com/rocketinsights/mangler/"
-  @version "0.1.0"
+ @project_url "https://github.com/rocketinsights/mangler"
+  @version "0.2.0"
 
   def project do
     [
       app: :mangler,
       version: @version,
       elixir: "~> 1.10",
-      description: "A collection of utilities to validate and transform strings.",
+      description: "A collection of utilities to validate and transform strings with diacritics, unicode and ascii.",
       source_url: @project_url,
       homepage_url: @project_url,
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -52,7 +52,6 @@ defmodule Mangler.MixProject do
         "Jon Principe"
       ],
       licenses: ["MIT"],
-      organization: "Rocket Insights",
       links: %{
         "GitHub" => @project_url,
         "Rocket Insights" => "https://rocketinsights.com"
